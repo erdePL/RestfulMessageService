@@ -14,22 +14,26 @@ public class MessageService {
     }
 
     public List<Message> getAllMessages(){
-        return new ArrayList<Message>(messages.values());
+        return new ArrayList<>(messages.values());
     }
     public Message getMessage(long id){
         return messages.get(id);
     }
     public Message addMessage(Message message){
-        message.setId(messages.size() + 1);
-        messages.put(message.getId(), message);
-        return messages.get(message.getId());
+        if(message.getAuthor()!=null && message.getMessageContent()!=null) {
+            message.setId(messages.size() + 1);
+            messages.put(message.getId(), message);
+            return messages.get(message.getId());
+        }
+        else
+            return null;
     }
     public Message updateMessage(Message message){
-        if(message.getId() <=0 ){
-            return  null;
-        }
-        messages.put(message.getId(), message);
-        return messages.get(message.getId());
+        if(message.getAuthor()!=null && message.getMessageContent()!=null && messages.get(message.getId())!=null) {
+            messages.put(message.getId(), message);
+            return messages.get(message.getId());
+        }else
+            return null;
     }
     public Message removeMessage(long id){
         return  messages.remove(id);
