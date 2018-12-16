@@ -2,7 +2,6 @@ package RestfulMessageService.resource;
 
 import RestfulMessageService.model.Message;
 import RestfulMessageService.service.MessageService;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class MessageResource {
-    MessageService messageService = new MessageService();
+    private MessageService messageService = new MessageService();
     @GET
     @Path("/{messageId}")
     public Message getMessage(@PathParam("messageId") long id){

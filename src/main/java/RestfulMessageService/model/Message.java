@@ -12,7 +12,6 @@ public class Message {
     public Message() {
 
     }
-
     public Message(long id, String messageContent, String author) {
         this.id = id;
         this.messageContent = messageContent;

@@ -2,7 +2,6 @@ package RestfulMessageService.service;
 
 import RestfulMessageService.database.DatabaseClass;
 import RestfulMessageService.model.Message;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -45,5 +44,4 @@ public class MessageService {
         else
             return "Failed to remove alll messages";
     }
-
 }
