@@ -3,6 +3,7 @@ package RestfulMessageService.service;
 import RestfulMessageService.database.DatabaseClass;
 import RestfulMessageService.model.Message;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +22,7 @@ public class MessageService {
     public Message addMessage(Message message){
         if(message.getAuthor()!=null && message.getMessageContent()!=null) {
             message.setId(messages.size() + 1);
+            message.setCreationDate(new Date());
             messages.put(message.getId(), message);
             return messages.get(message.getId());
         }
@@ -29,6 +31,7 @@ public class MessageService {
     }
     public Message updateMessage(Message message){
         if(message.getAuthor()!=null && message.getMessageContent()!=null && messages.get(message.getId())!=null) {
+            message.setCreationDate(    messages.get( message.getId() ).getCreationDate() );
             messages.put(message.getId(), message);
             return messages.get(message.getId());
         }else
