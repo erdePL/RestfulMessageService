@@ -8,7 +8,7 @@ public class Message {
     private Date creationDate;
     private String author;
     public Message() {
-
+        this.creationDate = new Date();
     }
     public Message(long id, String messageContent, String author) {
         this.id = id;
